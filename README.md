@@ -14,6 +14,14 @@ add $S2, $S0, $S1
 
 sw $S2, 0x54($0)
 
+Essentially, the first step of the program is to do an add immediate of 0 and 44, and storing it in $S0.  This function essentially loaded 44 into the register $S0.
+
+The same was performed for the second ADDI function.  However, the binary value stored was the 2's complement of 37.
+
+The third function was an R-type function, adding the values in registers $s0 and $s1 and storing them in the register $s2.
+
+The last function stored the word or value of $s2 into the hex value 0x54, or 84 in decimal.
+
 ### Task 2: Machine Code
 
 ##### Markdown Table with Machine Code
@@ -79,8 +87,8 @@ The instructions in the lab were to put this ORI function before the SW (store w
 | addi $s0, $0, 44  	| 001000 00000 10000 0000000000101100   	| 0x2010002C 	|
 | addi $s1, $0, -37 	| 001000 00000 10001 1111111111011011   	| 0x2011FFDB 	|
 | add $s2, $s0, $s1 	| 000000 10000 10001 10010 00000 100000 	| 0x02119020 	|
-| ori $s3, $s2, x8000 | 001101 10010 10011 1000000000000000     | 0x36538000  |
-| sw $s2, 0x45($0)  	| 101011 00000 10010 0000000001010100   	| 0xAC120054  |
+| ori $s3, $s2, x8000   | 001101 10010 10011 1000000000000000           | 0x36538000    |
+| sw $s2, 0x45($0)  	| 101011 00000 10010 0000000001010100   	| 0xAC120054    |
 
 ##### VHDL Additions
 
