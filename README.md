@@ -20,6 +20,8 @@ sw $S2, 0x54($0)
 | add $s2, $s0, $s1 	| 000000 10000 10001 10010 00000 100000 	| 0x02119020 	|
 | sw $s2, 0x45($0)  	| 101011 00000 10010 0000000001010100   	| 0xAC120054 	|
 
+![Waveform Up to 40 ns](https://github.com/KevinCabusora/CE5/blob/master/Waveform_Screenshot.PNG?raw=true "Image")
+
 In the first clock cycle, the value in wd3 is 44, and in the next clock cycle it is -37, or the 2's complement of 37.  This corresponds to the two addi functions.  WD3 also corresponds with the register file in the MIPS architecture.  The next value in the next clock cycle is 7, which is the summation of the two terms stored in $s0 and $s1.  In the next clock cycle, the sum is loaded into the hex register 0x54, as demonstrated by the value of WD3 in the final clock cycle.
 
 This screenshot only went to 40ns, because there were only four operations executed, corresponding to four clock cycles.
