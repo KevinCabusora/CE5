@@ -193,6 +193,7 @@ begin
       when "000100" => controls <= "000100001"; -- BEQ
       when "001000" => controls <= "101000000"; -- ADDI
       when "000010" => controls <= "000000100"; -- J
+		when "001101" => controls <= "101000011"; -- ORI
       when others   => controls <= "---------"; -- illegal op
     end case;
   end process;
@@ -213,6 +214,7 @@ begin
     case aluop is
       when "00" => alucontrol <= "010"; -- add (for lb/sb/addi)
       when "01" => alucontrol <= "110"; -- sub (for beq)
+		when "11" => alucontrol <= "001"; -- ORI (from ALU)
       when others => case funct is         -- R-type instructions
                          when "100000" => alucontrol <= "010"; -- add (for add)
                          when "100010" => alucontrol <= "110"; -- subtract (for sub)
